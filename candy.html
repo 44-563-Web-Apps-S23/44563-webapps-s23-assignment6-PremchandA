@@ -8,76 +8,43 @@
     <h1>Premchand Are chooses candy</h1>
 
 
-    <form> 
-        <input type="checkbox" id="Chocolate" name="chocolate" value="true">
-        <label for="Chocolate">Dark Chocolate</label> <br>
-     
-        <input type="checkbox" id="nuts" name="nuts" value="true">
-        <label for="Nuts">Nuts</label> <br>
+    <form>
+        <input type="checkbox" id="chocydark" name="ADD ON1" value="True"><label for="cb1_chocydark">Dark Chocolate</label></br>
+        <input type="checkbox" id="nutty" name="ADD ON2" value="True"><label for="cb1_nutty">Nuts</label></br>
+        <input type="checkbox" id="chewishy" name="ADD ON3" value="False"><label for="cb1_chewishy">Chewy</label></br>
     
-        <input type="checkbox" id="chewy" name="chewy" value="false">
-        <label for="chewy">Chewy</label> <br>
+        <input type="button" class="btn btn-primary" onclick="selectBox()" value="Select a box">
+      </form>
     
-        <input type="button" value="Select a box" onclick="selectBox()">
-    </form>
-
-
-<p id="result">This text will be replaced </p>
-
-<form>
-    <label for="property">Enter the size</label>
-    <input type="text" id="property" name="property" value="size"> <br>
     
-    <label for="price">Enter price</label>
-    <input type="text" id="price" name="price"> <br>
-
-    <input type="button" value="Update the box" onclick="updateBox()">
-</form>
-
-<script> 
-
-my_candy_box={};
-function selectBox()
-    {
-        my_candy_box={};
-        let choc=document.getElementById("Chocolate").checked
-        let nuts=document.getElementById("nuts").checked
-        let chewy=document.getElementById("chewy").checked
-        if(choc)
-        {
-            my_candy_box.choc = true;
-        }
-        else
-        {
-            my_candy_box.choc = false;
-        }
-        if(nuts)
-        {
-            my_candy_box.nuts = true;
-        }
-        else
-        {
-            my_candy_box.nuts = false;
-        }
-        if(chewy)
-        {
-            my_candy_box.chewy = true;
-        }
-        else
-        {
-            my_candy_box.chewy = false;
-        }
-        document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
-    } 
-    function updateBox()
-    {
-        let property=document.getElementById("property").value;
-        let price=document.getElementById("price").value;
-        my_candy_box["property"]=property;
-        my_candy_box["price"]=price;
-        document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
+    <p id="effect">Results will be shown here </p>
+    
+    <div class="form-group">
+        <form>
+          <label for="size">Enter the size </label><input type ="text" id="size" value="size" name="size" autofocus> <br>
+          <label for="price">Enter price </label><input type ="text" id="price" name="price" autofocus> <br>
+      
+          <input type="button" class="btn btn-primary" onclick="updateBox()" value="Update the box">
+      </form>
+      </div>
+      <p id="effect1">Results will be shown here </p>
+    
+    <script> 
+    
+    my_candy_box={};
+    function selectBox(){
+        my_candy_box ={};
+        my_candy_box.dark=document.getElementById("chocydark").checked;
+        my_candy_box.nuts=document.getElementById("nutty").checked;
+        my_candy_box.chewy=document.getElementById("chewishy").checked;
+        document.getElementById("effect").innerHTML=JSON.stringify(my_candy_box);
     }
-</script>
+    function updateBox(){
+       my_candy_box.size=document.getElementById("size").value;
+       my_candy_box.price=document.getElementById("price").value;
+       document.getElementById("effect1").innerHTML=JSON.stringify(my_candy_box);
+    }
+    </script>
 
 </body>
 </html> 
