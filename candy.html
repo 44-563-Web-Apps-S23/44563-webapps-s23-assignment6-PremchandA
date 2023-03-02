@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+    <h1>chooses candy</h1>
+
+
+    <form> 
+        <input type="checkbox" id="Chocolate" name="chocolate" value="true">
+        <label for="Chocolate">Dark Chocolate</label> <br>
+     
+        <input type="checkbox" id="nuts" name="nuts" value="true">
+        <label for="Nuts">Nuts</label> <br>
+    
+        <input type="checkbox" id="chewy" name="chewy" value="false">
+        <label for="chewy">Chewy</label> <br>
+    
+        <input type="button" value="Select a box" onclick="selectBox()">
+    </form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 

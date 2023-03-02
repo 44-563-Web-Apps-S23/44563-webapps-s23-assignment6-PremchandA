@@ -26,6 +26,15 @@
 
 <p id="result">This text will be replaced </p>
 
+<div class="container">
+    <div class="row">
+      <p>kindly hit on the image to view changes</p>
+      <div class="col-md">
+        <img id="image" src="./images/Epimedium 1.jpg" onclick="selectImage()" width="100" height="100" />
+      </div>
+    </div>
+  </div>
+
 <script> 
 good = 0
 oops = 0
@@ -46,7 +55,25 @@ function checkPainter (){
         alert("Sorry")
     }
 }
-</script>
+//images
+let useImage = 1;
+function selectImage() {
+    switch (useImage) {
+        case 1:
+        document.getElementById("image").src = "./images/Epimedium 1.jpg";
+        useImage++;
+        break;
+        case 2:
+          document.getElementById("image").src = "./images/restio2.jpg";
+          useImage++;
+          break;
+        case 3:
+          document.getElementById("image").src = "./images/RHAMNUS1.jpg";
+          useImage = 1;
+}
+}
 
+
+</script>
 </body>
 </html> 
